@@ -1,0 +1,65 @@
+import java.util.*;
+
+public class Main {
+
+    public static int currentIndexMemberNewTaskQueue(Queue<Character>nTQueue){
+        HashSet<Character> set = new HashSet<Character>();
+        int newCurrentIndex = 0;
+
+        if(nTQueue.isEmpty()){
+            return -1 ;
+        }
+
+        while(!nTQueue.isEmpty()){
+
+            if(!set.contains(nTQueue.peek())){
+                set.add(nTQueue.remove());
+                newCurrentIndex++;                
+            }
+            else{
+                return newCurrentIndex+1;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        Queue<Character> oldTaskQueue = new LinkedList<Character>();
+        int currentIndexMember = 7;
+        Queue<Character> newTaskQueue = new LinkedList<Character>();
+        
+        oldTaskQueue.add('A');
+        oldTaskQueue.add('B');
+        oldTaskQueue.add('C');
+        oldTaskQueue.add('D');
+        oldTaskQueue.add('E');
+        oldTaskQueue.add('F');
+        oldTaskQueue.add('A');
+        oldTaskQueue.add('B');
+        oldTaskQueue.add('C');
+        oldTaskQueue.add('D');
+        oldTaskQueue.add('A');
+        oldTaskQueue.add('B');
+        oldTaskQueue.add('C');
+        oldTaskQueue.add('A');
+        oldTaskQueue.add('B');
+        oldTaskQueue.add('A');
+
+
+        newTaskQueue.add('B');
+        newTaskQueue.add('C');
+        newTaskQueue.add('E');
+        newTaskQueue.add('F');
+        newTaskQueue.add('B');
+        newTaskQueue.add('C');
+        newTaskQueue.add('B');
+        newTaskQueue.add('C');
+        newTaskQueue.add('B');
+
+
+        System.out.print(currentIndexMemberNewTaskQueue(newTaskQueue));  
+
+
+
+    }
+}
