@@ -1,0 +1,36 @@
+/*
+As there are majorly 4 main type of Linked List 
+1. Singly linked lists.
+2. Doubly linked lists.
+3. Circular linked lists.
+4. Circular doubly linked lists.
+*/
+
+//Assuming I am provided with a Head of singly/doubly/Circular/Circular doubly linkedList as (Node Head)
+
+//function for length of singly/doubly linkedList
+public static int size(Node Head){
+    Node newHead = Head;
+    int count= 0;
+    if(newHead.next == null){
+        return count;
+    }
+    while(newHead.next!=null){
+        count++;
+        newHead= newHead.next;
+    }
+}
+
+//function for length of Circular/Circular doubly linkedList
+public static int size(Node Head){
+    Node newHead = Head;
+    int count= 0;
+    if(newHead.next == null){
+        return count;
+    }
+    while(newHead.next.data!=-1){
+        count++;
+        newHead.set(-1); // Assuming this function replaces the original value with -1, and there in no negetive value in the linkedList
+        newHead= newHead.next;
+    }
+}
